@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>My Duels</title>
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon_io//favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon_io//favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/favicon_io//site.webmanifest">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/550ddecd5b.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script type="module" src="../js/index.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <!-- H E A D E R -->
+    <section class="colored-section" id="title">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <span class="navbar-brand">Duel Links Replays</span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/#decks">Decks</a></li>
+          </ul>
+        </div>
+      </nav>
+    </section>
+
+    <!-- V I D E O -->
+    <section class="white-section" id="video">
+      <div class="container-fluid replay-container">
+        <h1 class="text-center video-title" onclick="close()"><%= replay.title %></h1>
+        <div class="embed-responsive embed-responsive-16by9 video-container">
+          <video controls class="embed-responsive-item">
+            <source src="<%= replay.videoPath %>" type="video/mp4">
+            Could not play this mp4 video. Try another browser!
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- C A R D S  U S E D -->
+    <section id="deck-card-display" class="colored-section">
+      <!-- monster slidedown -->
+      <div class="m-card-description white-section">
+        <div class="container-fluid">
+          <picture class="close-btn">
+            <img class="full-wh" src="../images/flaticon/cancel.png" alt="close" />
+          </picture>
+          <h5 class="m-card-name"></h5>
+          <!-- two column row: col1 {monster image} col2 {level, attribute, type} -->
+          <div class="row ml-0 mr-0">
+            <!-- col1 -->
+            <picture class="col-md-6 full-wh">
+              <img class="m-img-src" src="" alt="">
+            </picture>
+            <!-- col2 -->
+            <div class="col-md-6 row m-card-side-info">  <!-- row: 3 full width columns -->
+              <div class="col-12 level-wrap">
+                <i class="fas fa-bookmark"></i>
+                <b class="pl-2">Level:</b><span class="level"></span>
+              </div>
+              <div class="col-12 attr-wrap">
+                <i class="fas fa-bookmark"></i>
+                <b class="pl-2">Attribute:</b><span class="attribute"></span>
+              </div>
+              <div class="col-12 type-wrap">
+                <i class="fas fa-bookmark"></i>
+                <b class="pl-2">Type:</b><span class="m-type"></span>
+              </div>
+            </div>
+            <div class="card-textbox full-wh">
+              <p class="summonReq"></p>
+              <p class="m-card-effect"></p>
+            </div>
+            <!-- two column row: atk(col1) and def(col2) -->
+            <div class="row atk-def-row ml-0 mr-0">
+              <div class="col-sm-6 atk-wrap m-0">
+                <i class="fas fa-meteor"></i>
+                <b class="pl-2">ATK:</b><span class="col-6 atk pr-3"></span>
+              </div>
+              <div class="col-sm-6 def-wrap m-0">
+                <i class="fas fa-shield-alt"></i>
+                <b class="pl-2">DEF:</b><span class="col-6 def"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- spell/trap slidedown -->
+      <div class="st-card-description white-section">
+        <div class="container-fluid">
+          <picture class="close-btn">
+            <img class="full-wh" src="../images/flaticon/cancel.png" alt="close" />
+          </picture>
+          <h5 class="st-card-name"></h5>
+          <!-- two column row: spell/trap img(col1) and spell/trap type(col2) -->
+          <div class="row">
+            <picture class="col-md-6 full-wh">
+              <img class="st-img-src" src="" alt="">
+            </picture>
+            <div class="col-md-6 type-wrap">
+              <i class="fas fa-bookmark"></i>
+              <span class="st-type pl-2"></span>
+            </div>
+            <div class="card-textbox full-wh">
+              <p class="st-card-effect"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- cards -->
+      <div class="container-fluid">
+        <h2 class="cards-used-heading">Cards Used In Duel</h2>
+        <div class="row">
+          <% for(var i = 0; i < replay.numOfCards; i++) { %>
+            <div class="deck-card col-6 col-sm-4 col-md-3">
+              <picture id="<%= replay.cards[i].htmlId %>" class="img-wrap <%= replay.cards[i].cardType %> full-wh">
+                <img class="full-wh" src="<%= replay.cards[i].path %>" alt="<%= replay.cards[i].name %>">
+              </picture>
+            </div>
+          <% } %>
+        </div>
+        <button type="button" class="skill-btn btn btn-dark btn-lg" data-toggle="collapse" href="#skill" role="button" aria-expanded="false" aria-controls="skill"><%= replay.skill %></button>
+        <div id="skill" class="collapse">
+          <div class="container-fluid skill-container">
+            <picture class="skill">
+              <p class="skill-details"><%= replay.skillDetail %></p>
+            </picture>
+            <% if(replay.containsSkillCard) { %>
+              <div class="row skill-card-row">
+                <div class="skillCard-img-container col-4">
+                  <picture class="full-wh">
+                    <img class="full-wh" src="<%= replay.skillCardPath %>" alt="<%= replay.skillCardName %>">
+                  </picture>
+                </div>
+                <div class="skill-card-details col-8">
+                  <p class="skill-card-name"><%= replay.skillCardName %></p>
+                  <p class="skill-card-type"><%= replay.skillCardType %></p>
+                  <p class="skill-card-effect"><%= replay.skillCardEffect %></p>
+                </div>
+              </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

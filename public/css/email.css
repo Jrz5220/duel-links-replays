@@ -1,0 +1,67 @@
+body {
+  font-family: 'PT Sans Caption', sans-serif;
+  height: 100%;
+  width: 100%;
+}
+
+.navbar-brand {
+  font-size: 2.2rem;
+}
+
+.nav-item {
+  font-size: 1.2rem;
+  padding: 0 18px;
+}
+
+.form-section {
+  text-align: center;
+  padding: 40px;
+}
+
+.form {
+  text-align: left;
+  max-width: 426px;
+  margin: 0 auto;
+}
+
+.contact-me {
+  background-color: #ff9a2e;
+	border: 1px solid #ff8400;
+	border-radius: 10px;
+	padding: 10px 20px;
+	text-align: left;
+	text-transform: uppercase;
+  width: auto;
+}
+
+.contact-form-fieldset {
+  border: 2px solid #ff9019;
+	border-radius: 10px;
+  width: 100%;
+  padding: 1.25rem;
+}
+
+.form-field-container {
+  display: block;
+}
+
+.field-input-value {
+  border: 1px solid #ababab;
+	border-radius: 12px;
+  padding: 5px;
+  width: 100%;
+}
+
+.message-input {
+  height: 112px;
+  resize: vertical;
+}
+
+.submit-btn {
+  width: 100px;
+}
+
+.error-message {
+  color: red;
+  display: none;
+}
